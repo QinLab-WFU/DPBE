@@ -5,14 +5,11 @@ def get_baseargs():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--dataset", type=str, default="flickr", help="choice from [coco, flickr, nuswide, iapr]")
-    parser.add_argument("--output-dim", type=int, default=64)
-
     parser.add_argument("--save-dir", type=str, default="./result/")
     parser.add_argument("--save-mat", type=bool, default=True)
     parser.add_argument("--save-model", type=bool, default=False)
-
-    parser.add_argument("--is-train", default=True)
+    parser.add_argument("--save_csv", type=bool, default=True)
+    
     parser.add_argument("--valid", default=True)
     parser.add_argument("--calc-crc", type=bool, default=False)
     parser.add_argument("--calc-recall", type=bool, default=False)
@@ -26,7 +23,7 @@ def get_baseargs():
     parser.add_argument("--epochs", type=int, default=200)
     parser.add_argument("--max-words", type=int, default=32)
     parser.add_argument("--resolution", type=int, default=224)
-    parser.add_argument("--batch-size", type=int, default=256)
+    parser.add_argument("--batch-size", type=int, default=300)
     parser.add_argument("--num-workers", type=int, default=8)
     parser.add_argument("--query-num", type=int, default=5000)
     parser.add_argument("--train-num", type=int, default=10000)
@@ -42,6 +39,3 @@ def get_baseargs():
                         help="Proportion of training to perform linear learning rate warmup for. E.g., 0.1 = 10%% of training.")
 
     return parser
-
-
-
