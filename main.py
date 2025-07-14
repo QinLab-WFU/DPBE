@@ -12,8 +12,13 @@ torch.set_float32_matmul_precision('high')  # 启用 Tensor Core 加速（Ampere
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--method", type=str, default='DAS', help="Trainer method name")
-    args = parser.parse_args()
+    parser.add_argument("--method", type=str, default='DPBE', help="Trainer method name")
 
+    parser.add_argument("--dataset", type=str, default="flickr", help="name of dataset")
+    parser.add_argument("--output-dim", type=int, default=16)
+
+    parser.add_argument("--is-train", default=True)
+    args = parser.parse_args()
+    
     trainer = trainers.get(args.method)
-    trainer(0)
+    trainer(args, 0)
