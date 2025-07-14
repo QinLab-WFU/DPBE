@@ -6,10 +6,6 @@ trainers = {
     'DPBE': DPBETrainer
 }
 
-torch.backends.cudnn.benchmark = True    # 允许自动优化卷积算法
-torch.backends.cudnn.deterministic = False  # 关闭确定性模式（提升速度）
-torch.set_float32_matmul_precision('high')  # 启用 Tensor Core 加速（Ampere+架构）
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--method", type=str, default='DPBE', help="Trainer method name")
